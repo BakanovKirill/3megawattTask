@@ -1,0 +1,20 @@
+body, html {
+    /*height: 100%;*/
+    width: 100%;
+    max-width: 100%;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    background: transparent;
+    color: #333;
+    overflow-x: hidden !important;
+    margin: auto;
+    background: #fff;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+button {
+    cursor: pointer;
+}

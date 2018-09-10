@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block active_summary %}active{% endblock %}
+{% block body %}
+    <h1>Summary</h1>
+    <div>
+        <a href="{% url 'summary' %}">
+            <button class="btn btn-primary {% if sum %}active{% endif %}">Sum</button>
+        </a>
+        <a href="{% url 'summary_average' %}">
+            <button class="btn btn-primary {% if avg %}active{% endif %}">Average</button>
+        </a>
+    </div>
+    <table class="table mt-2">
+        <thead class="thead-light">
+        <tr>
+            <th><strong>Site</strong></th>
+            <th><strong>A Value</strong></th>
+            <th><strong>B Value</strong></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for site in sites %}
+            <tr>
+                <td>{{ site.title }}</td>
+                <td>{{ site.a_value }}</td>
+                <td>{{ site.b_value }}</td>
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock %}

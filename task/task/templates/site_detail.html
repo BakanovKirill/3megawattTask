@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block active_sites %}active{% endblock %}
+{% block body %}
+    <h1>Site Details: {{ object.title }}</h1>
+    {% with records=object.records.all %}
+        {% if records %}
+            <table class="table mt-2">
+                <thead class="thead-light">
+                <tr>
+                    <th><strong>Date</strong></th>
+                    <th><strong>A Value</strong></th>
+                    <th><strong>B Value</strong></th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for record in records %}
+                    <tr>
+                        <td>{{ record.date_created|date:"M d, Y" }}</td>
+                        <td>{{ record.a_value }}</td>
+                        <td>{{ record.b_value }}</td>
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+            </table>
+        {% endif %}
+    {% endwith %}
+{% endblock %}

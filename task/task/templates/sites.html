@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block active_sites %}active{% endblock %}
+{% block body %}
+    <h1>Sites</h1>
+    {% if object_list %}
+        <ul class="list-group">
+            {% for site in object_list %}
+                <li class="list-group-item"><a href="{% url 'site_detail' pk=site.id %}">{{ site.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="alert alert-error">
+            <span >Sorry, no sites available!</span>
+        </div>
+    {% endif %}
+{% endblock %}

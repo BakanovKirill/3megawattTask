@@ -1,0 +1,5 @@
+Django
+ipdb
+ipython==6.4.0
+django-debug-toolbar==1.9.1
+django-annoying
