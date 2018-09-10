@@ -37,15 +37,12 @@ def summary(request):
             site_data['a_value'] += record.a_value
             site_data['b_value'] += record.b_value
         data['sites'].append(site_data)
-    # Alternative way to do it via ORM. Using Coalesce to set default sum to 0.
 
+    # Alternative way to do it via ORM. Using Coalesce to set default sum to 0.
     # data['sites'] = sites.annotate(
     #     a_value=Coalesce(Sum('records__a_value'), 0),
     #     b_value=Coalesce(Sum('records__b_value'), 0)
     # ).values('title', 'a_value', 'b_value')
-    print(sites.annotate(a_value=Coalesce(Sum('records__a_value'), 0),
-                         b_value=Coalesce(Sum('records__b_value'), 0)).values(
-        'title', 'a_value', 'b_value').query.sql_with_params())
     return data
 
 
